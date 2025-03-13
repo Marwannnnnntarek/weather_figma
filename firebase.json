@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"weather-e98bc","appId":"1:739308254979:android:6de64a146e57b041a99b36","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"weather-e98bc","configurations":{"android":"1:739308254979:android:6de64a146e57b041a99b36","web":"1:739308254979:web:4ad98bacbda0a36ea99b36"}}}}}}

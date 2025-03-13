@@ -37,7 +37,7 @@ class RegisterViewBody extends StatelessWidget {
             SizedBox(height: 20),
             RegisterTextField(hint: 'Password'),
             SizedBox(height: 20),
-            SignUpButton(),
+            SignUpButton(email: 'marwan@gmail.com', password: 'kjgaskjgfjkaf',),
             WithoutSignUpButton(),
           ],
         ),

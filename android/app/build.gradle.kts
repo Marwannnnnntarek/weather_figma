@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services") // Google Services plugin for Firebase
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id("dev.flutter.flutter-gradle-plugin")
+    id("dev.flutter.flutter-gradle-plugin") // Ensure this is placed correctly
 }
 
 android {
+    compileSdk = 34
     namespace = "com.example.myapp"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
@@ -19,22 +20,17 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+   defaultConfig {
         applicationId = "com.example.myapp"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 23  // ✅ Use `minSdk = 23` instead of `minSdkVersion`
+        targetSdk = 34  // ✅ Use `targetSdk = 34`
+        versionCode = 1  // ✅ Replace `flutter.versionCode` with an actual integer
+        versionName = "1.0.0"  // ✅ Replace `flutter.versionName` with a string
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("debug") // Ensure correct signing
         }
     }
 }
