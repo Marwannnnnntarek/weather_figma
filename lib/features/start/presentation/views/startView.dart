@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/features/start/presentation/views/widgets/startViewBody.dart';
 
 class StartView extends StatelessWidget {
-  const StartView({super.key});
+  const StartView({super.key,});
 
   @override
   Widget build(BuildContext context) {
