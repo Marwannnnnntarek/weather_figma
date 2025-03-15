@@ -7,16 +7,21 @@ class CreateAnAccountButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        context.go('/RegisterView');
-      },
-      style: TextButton.styleFrom(
-        foregroundColor: Colors.black, // Text color
-      ),
-      child: Text(
-        'Create an account',
-        style: GoogleFonts.josefinSans(fontSize: 9),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 255),
+      child: TextButton(
+        onPressed: () {
+          context.go('/RegisterView');
+        },
+
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          foregroundColor: Colors.black, // Text color
+        ),
+        child: Text(
+          'Create an account',
+          style: GoogleFonts.josefinSans(fontSize: 9),
+        ),
       ),
     );
   }

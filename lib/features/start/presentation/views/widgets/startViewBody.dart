@@ -10,31 +10,29 @@ class StartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          StartImage(),
-          SizedBox(height: 40),
-          Text(
-            'Weather',
-            style: GoogleFonts.kavoon(fontSize: 36, color: Colors.white),
-          ),
-          Text(
-            'PyDjango',
-            style: GoogleFonts.inter(fontSize: 24, color: Colors.white),
-          ),
-          SizedBox(height: 40),
-          GetStartButton(),
-          CreateAnAccountButton(),
-        ],
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StartImage(),
+            SizedBox(height: 67),
+            Text(
+              'Weather',
+              style: GoogleFonts.kavoon(fontSize: 36, color: Colors.white),
+            ),
+            SizedBox(height: 5),
+            Text(
+              'PyDjango',
+              style: GoogleFonts.inter(fontSize: 24, color: Colors.white),
+            ),
+            SizedBox(height: 42),
+            GetStartButton(),
+
+            CreateAnAccountButton(),
+          ],
+        ),
       ),
     );
   }
 }
-
-
-
-
-
-
