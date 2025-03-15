@@ -9,11 +9,13 @@ class GetStartButton extends StatelessWidget {
     return TextButton(
       onPressed: () {},
       style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        fixedSize: Size(144, 33),
         foregroundColor: Colors.white, // Text color
         backgroundColor: Color(0xFF5c6ee5), // Button background color
-        padding: EdgeInsets.symmetric(horizontal: 31, vertical: 8), // Padding
+        // padding: EdgeInsets.symmetric(horizontal: 31, vertical: 5), // Padding
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(50),
         ), // Rounded corners
       ),
       child: Text('Get Start', style: GoogleFonts.josefinSans(fontSize: 16)),
