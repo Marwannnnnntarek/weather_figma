@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/features/register/presentation/views/widgets/RegisterImage.dart';
 import 'package:myapp/features/register/presentation/views/widgets/RegisterTextField.dart';
 import 'package:myapp/features/register/presentation/views/widgets/SignUpButton.dart';
+import 'package:myapp/features/register/presentation/views/widgets/SignUpText.dart';
 import 'package:myapp/features/register/presentation/views/widgets/WithoutSignUpButton.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -16,17 +16,7 @@ class RegisterViewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RegisterImage(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 55),
-              child: Text(
-                'Sign Up Now!',
-                style: GoogleFonts.inter(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            SignUpText(),
             RegisterTextField(hint: 'First name and last name'),
             SizedBox(height: 26),
             RegisterTextField(hint: 'Email'),
@@ -45,3 +35,4 @@ class RegisterViewBody extends StatelessWidget {
     );
   }
 }
+
