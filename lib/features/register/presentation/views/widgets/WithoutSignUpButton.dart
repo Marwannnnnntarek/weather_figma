@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WithoutSignUpButton extends StatelessWidget {
@@ -9,7 +10,9 @@ class WithoutSignUpButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 76),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          context.go('/HomeView');
+        },
         style: TextButton.styleFrom(
           foregroundColor: Colors.black, // Text color
         ),

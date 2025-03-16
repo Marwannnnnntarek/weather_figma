@@ -11,7 +11,7 @@ class CreateAnAccountButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 255),
       child: TextButton(
         onPressed: () {
-          context.go('/RegisterView');
+          context.go('/HomeView');
         },
 
         style: TextButton.styleFrom(

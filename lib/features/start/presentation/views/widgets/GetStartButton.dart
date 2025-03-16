@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetStartButton extends StatelessWidget {
@@ -7,7 +8,9 @@ class GetStartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+         context.go('/HomeView');
+      },
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
         fixedSize: Size(144, 33),
