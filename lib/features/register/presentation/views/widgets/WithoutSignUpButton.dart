@@ -11,7 +11,7 @@ class WithoutSignUpButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 76),
       child: TextButton(
         onPressed: () {
-          context.go('/HomeView');
+          context.push('/HomeView');
         },
         style: TextButton.styleFrom(
           foregroundColor: Colors.black, // Text color

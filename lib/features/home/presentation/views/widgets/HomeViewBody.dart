@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/features/home/presentation/views/widgets/AddCircleButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/LocationButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/LocationPinButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/MoreVertButton.dart';
+import 'package:myapp/features/home/presentation/views/widgets/AddCircleIconButton.dart';
+import 'package:myapp/features/home/presentation/views/widgets/BackIconButton.dart';
+import 'package:myapp/features/home/presentation/views/widgets/Date.dart';
+import 'package:myapp/features/home/presentation/views/widgets/Location.dart';
+import 'package:myapp/features/home/presentation/views/widgets/LocationIconImage.dart';
+import 'package:myapp/features/home/presentation/views/widgets/MoreIconButton.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            SizedBox(width: 20),
-            MoreVertButton(),
-            SizedBox(width: 75),
-            LocationPinButton(),
-            SizedBox(width: 5),
-            LocationButton(),
-            SizedBox(width: 78),
-            AddCircleButton(),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              MoreIconButton(),
+              SizedBox(width: 75),
+              LocationIconImage(),
+              SizedBox(width: 15),
+              Location(),
+              SizedBox(width: 70),
+              AddCircleButtonIcon(),
+            ],
+          ),
+          Row(children: [BackIconButton(), SizedBox(width: 46), Date()]),
+        ],
+      ),
     );
   }
 }

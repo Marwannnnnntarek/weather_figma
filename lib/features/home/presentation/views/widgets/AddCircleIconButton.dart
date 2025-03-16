@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LocationPinButton extends StatelessWidget {
-  const LocationPinButton({super.key});
+class AddCircleButtonIcon extends StatelessWidget {
+  const AddCircleButtonIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +9,9 @@ class LocationPinButton extends StatelessWidget {
       width: 24,
       height: 24,
       child: IconButton(
+        padding: EdgeInsets.zero,
         onPressed: () {},
-        icon: Icon(Icons.location_pin, color: Color(0xFF3c3b99)),
+        icon: Icon(Icons.add_circle_outline, color: Color(0xFF656eef)),
       ),
     );
   }

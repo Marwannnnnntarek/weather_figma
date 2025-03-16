@@ -9,7 +9,7 @@ class GetStartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-         context.go('/HomeView');
+         context.push('/HomeView');
       },
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
