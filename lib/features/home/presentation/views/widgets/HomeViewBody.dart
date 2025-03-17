@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/core/helpers/assetsData.dart';
 import 'package:myapp/features/home/presentation/views/widgets/AddCircleIconButton.dart';
 import 'package:myapp/features/home/presentation/views/widgets/BackIconButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/Cloudy.dart';
-import 'package:myapp/features/home/presentation/views/widgets/ConditionImage.dart';
+import 'package:myapp/features/home/presentation/views/widgets/ConditionsCard.dart';
 import 'package:myapp/features/home/presentation/views/widgets/Date.dart';
 import 'package:myapp/features/home/presentation/views/widgets/Location.dart';
 import 'package:myapp/features/home/presentation/views/widgets/LocationIconImage.dart';
 import 'package:myapp/features/home/presentation/views/widgets/MoreIconButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/Temp.dart';
+
+import 'package:myapp/features/home/presentation/views/widgets/WeatherCondition.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -34,24 +33,11 @@ class HomeViewBody extends StatelessWidget {
               AddCircleButtonIcon(),
             ],
           ),
-          Column(
-            children: [
-              Stack(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start, // Aligns Temp() to bottom
-                    children: [Temp()],
-                  ),
-                  Positioned(right: 72, top: 50, child: ConditionImage()),
-                  Positioned(left: 145, top: 132, child: Cloudy()),
-                ],
-              ),
-            ],
-          ),
+          WeatherCondition(),
+          ConditionsCard(),
         ],
       ),
     );
   }
 }
+
