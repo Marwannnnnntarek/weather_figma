@@ -6,9 +6,8 @@ class Location extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 28,
-      width: 119,
+    return Padding(
+      padding: const EdgeInsets.only(top: 15),
       child: Text(
         'Location',
         style: GoogleFonts.josefinSans(
