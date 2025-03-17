@@ -15,40 +15,43 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(children: [MoreIconButton(), BackIconButton()]),
-            SizedBox(width: 75),
-            LocationIconImage(),
-            SizedBox(width: 7),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [Location(), Date()],
-            ),
-            Spacer(),
-            AddCircleButtonIcon(),
-          ],
-        ),
-        Column(
-          children: [
-            Stack(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start, // Aligns Temp() to bottom
-                  children: [Temp()],
-                ),
-                Positioned(right: 72, top: 50, child: ConditionImage()),
-                Positioned(left: 145, top: 132, child: Cloudy()),
-              ],
-            ),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(children: [MoreIconButton(), BackIconButton()]),
+              SizedBox(width: 75),
+              LocationIconImage(),
+              SizedBox(width: 7),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [Location(), Date()],
+              ),
+              Spacer(),
+              AddCircleButtonIcon(),
+            ],
+          ),
+          Column(
+            children: [
+              Stack(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment:
+                        CrossAxisAlignment.start, // Aligns Temp() to bottom
+                    children: [Temp()],
+                  ),
+                  Positioned(right: 72, top: 50, child: ConditionImage()),
+                  Positioned(left: 145, top: 132, child: Cloudy()),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
