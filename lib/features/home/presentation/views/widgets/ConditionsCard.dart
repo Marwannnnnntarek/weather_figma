@@ -10,26 +10,17 @@ class ConditionsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 280,
-      height: 69,
+      height: 72,
       child: Card(
+        color: Color(0xFFE9E7FF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 7),
           child: Row(
-            children: [
-              Precipitation(),
-              Spacer(),
-              Humidity(),
-              Spacer(),
-              Wind(),
-            ],
+            children: [Precipitation(), Spacer(), Humidity(), Spacer(), Wind()],
           ),
         ),
       ),
     );
   }
 }
-
-
-
-
