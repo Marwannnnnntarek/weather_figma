@@ -11,13 +11,13 @@ class WithoutSignUpButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 76),
       child: TextButton(
         onPressed: () {
-          context.push('/HomeView');
+          context.push('/LoginView');
         },
         style: TextButton.styleFrom(
           foregroundColor: Colors.black, // Text color
         ),
         child: Text(
-          'Continue without sign up',
+          'Already have an account',
           style: GoogleFonts.josefinSans(
             fontSize: 9,
             fontWeight: FontWeight.w500,

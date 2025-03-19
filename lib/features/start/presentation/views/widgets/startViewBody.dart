@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/start/presentation/views/widgets/CreateAnAccountButton.dart';
 import 'package:myapp/features/start/presentation/views/widgets/GetStartButton.dart';
 
 import 'package:myapp/features/start/presentation/views/widgets/startImage.dart';
@@ -29,7 +28,6 @@ class StartViewBody extends StatelessWidget {
             SizedBox(height: 42),
             GetStartButton(),
 
-            CreateAnAccountButton(),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpButton extends StatelessWidget {
@@ -7,7 +8,9 @@ class SignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+         context.push('/HomeView');
+      },
       style: TextButton.styleFrom(
         foregroundColor: Colors.white, // Text color
         backgroundColor: Color(0xFF5c6ee5), // Button background color
