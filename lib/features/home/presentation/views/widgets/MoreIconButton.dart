@@ -5,10 +5,6 @@ class MoreIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      onPressed: () {},
-      icon: Icon(Icons.more_vert_rounded, color: Color(0xFF656eef)),
-    );
+    return Icon(Icons.more_vert_rounded, color: Color(0xFF656eef));
   }
 }

@@ -5,9 +5,6 @@ class AddCircleButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Icon(Icons.add_circle_outline, color: Color(0xFF656eef)),
-    );
+    return Icon(Icons.add_circle_outline, color: Color(0xFF656eef));
   }
 }
