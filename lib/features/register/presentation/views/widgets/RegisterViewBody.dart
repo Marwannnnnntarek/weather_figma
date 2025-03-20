@@ -7,7 +7,7 @@ import 'package:myapp/features/register/presentation/views/widgets/WithoutSignUp
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,15 +17,16 @@ class RegisterViewBody extends StatelessWidget {
           children: [
             RegisterImage(),
             SignUpText(),
-            RegisterTextField(hint: 'First name and last name'),
-            SizedBox(height: 26),
-            RegisterTextField(hint: 'Email'),
-            SizedBox(height: 27),
-            RegisterTextField(hint: 'Phone Number'),
-            SizedBox(height: 26),
-            RegisterTextField(hint: 'Country'),
-            SizedBox(height: 23),
-            RegisterTextField(hint: 'Password'),
+            // RegisterTextField(hint: 'First name and last name'),
+            // SizedBox(height: 26),
+            // RegisterTextField(hint: 'Email'),
+            // SizedBox(height: 27),
+            // RegisterTextField(hint: 'Phone Number'),
+            // SizedBox(height: 26),
+            // RegisterTextField(hint: 'Country'),
+            // SizedBox(height: 23),
+            // RegisterTextField(hint: 'Password'),
+            RegistrationScreen(),
             SizedBox(height: 24),
             SignUpButton(),
             WithoutSignUpButton(),
@@ -35,4 +36,3 @@ class RegisterViewBody extends StatelessWidget {
     );
   }
 }
-

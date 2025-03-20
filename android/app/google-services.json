@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "739308254979",
-    "project_id": "weather-e98bc",
-    "storage_bucket": "weather-e98bc.firebasestorage.app"
+    "project_number": "45543137846",
+    "project_id": "weather-figma-ef221",
+    "storage_bucket": "weather-figma-ef221.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:739308254979:android:6de64a146e57b041a99b36",
+        "mobilesdk_app_id": "1:45543137846:android:a713353049c82d3d972e97",
         "android_client_info": {
           "package_name": "com.example.myapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCPftm0xwGdQqw7AmGhPPOw2QTLkzu0F_0"
+          "current_key": "AIzaSyBQDnJiAzmXo2sZvUz_qH9MU0V9ePJQbHs"
         }
       ],
       "services": {
