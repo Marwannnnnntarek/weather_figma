@@ -1,9 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'package:myapp/core/helpers/appRouters.dart';
-
-
 
 
  main() async{
@@ -12,15 +9,18 @@ import 'package:myapp/core/helpers/appRouters.dart';
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return
+    MaterialApp.router(
       routerConfig: AppRouters.router,
       debugShowCheckedModeBanner: false,
     );
+    // MaterialApp(home: Scaffold(body: Container(color: Colors.red)));
   }
 }
