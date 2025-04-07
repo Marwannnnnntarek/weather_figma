@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignInButton extends StatelessWidget {
-  const SignInButton({super.key});
-
+  const SignInButton({super.key,required this.onPressed});
+final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.push('/HomeView');
-      },
+      onPressed: onPressed,
       style: TextButton.styleFrom(
         foregroundColor: Colors.white, // Text color
         backgroundColor: Color(0xFF5c6ee5), // Button background color
