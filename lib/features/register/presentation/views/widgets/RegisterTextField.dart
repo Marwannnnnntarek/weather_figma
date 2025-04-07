@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RegisterTextField extends StatefulWidget {
-  const RegisterTextField({super.key, required this.hint});
+// ignore: must_be_immutable
+class RegisterTextField extends StatelessWidget {
+  const RegisterTextField({super.key, required this.hint, required this.onChanged, this.validator,  this.obscureText = false});
+
   final String hint;
+  final Function(String)? onChanged;
+   final String? Function(String?)? validator;
+  final bool obscureText;
 
-  @override
-  State<RegisterTextField> createState() => _RegisterTextFieldState();
-}
-
-class _RegisterTextFieldState extends State<RegisterTextField> {
-  String? email;
-  String? password;
-  bool showSpinner = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,13 +17,12 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
         SizedBox(
           width: 212,
           height: 43,
-          child: TextField(
-            keyboardType: TextInputType.emailAddress,
+          child: TextFormField(
+            validator: validator,
+            obscureText: obscureText,
             textAlign: TextAlign.center,
-            onChanged: (value) {
-              email = value;
-              //Do something with the user input.
-            },
+            onChanged: onChanged,
+
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
@@ -35,7 +31,7 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
 
               filled: true,
               fillColor: Color(0xFFcccde0),
-              hintText: widget.hint,
+              hintText: hint,
 
               hintStyle: GoogleFonts.inter(
                 fontSize: 10,
@@ -49,7 +45,6 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
             ),
           ),
         ),
-        
       ],
     );
   }
