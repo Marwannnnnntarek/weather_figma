@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
 
 class DateText extends StatelessWidget {
-  const DateText({super.key});
-
+  const DateText({super.key, required this.weather});
+final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Monday, 3 October 9:00',
+       weather.location.localtime,
       style: GoogleFonts.josefinSans(
         fontSize: 10,
         fontWeight: FontWeight.w500,
