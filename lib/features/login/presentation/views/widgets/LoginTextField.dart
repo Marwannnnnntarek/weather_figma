@@ -40,11 +40,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class LoginTextField extends StatelessWidget {
-  const LoginTextField({super.key, required this.hint, required this.onChanged, this.validator,  this.obscureText = false});
+  const LoginTextField({super.key, required this.hint, required this.onChanged, this.obscureText = false});
 
   final String hint;
   final Function(String)? onChanged;
-   final String? Function(String?)? validator;
   final bool obscureText;
 
   @override
@@ -55,7 +54,12 @@ class LoginTextField extends StatelessWidget {
           width: 212,
           height: 43,
           child: TextFormField(
-            validator: validator,
+          validator: (data) {
+              if (data!.isEmpty) {
+                return 'This data is required';
+              }
+              return null;
+            },
             obscureText: obscureText,
             textAlign: TextAlign.center,
             onChanged: onChanged,
@@ -69,6 +73,10 @@ class LoginTextField extends StatelessWidget {
               filled: true,
               fillColor: Color(0xFFcccde0),
               hintText: hint,
+              errorStyle: TextStyle(
+                height: 0.1, // smaller line height
+                // color: Colors.redAccent,
+              ),
 
               hintStyle: GoogleFonts.inter(
                 fontSize: 10,

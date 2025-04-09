@@ -5,8 +5,7 @@ import 'package:myapp/features/login/presentation/views/widgets/CreateAnAccountB
 import 'package:myapp/features/login/presentation/views/widgets/LoginTextField.dart';
 import 'package:myapp/features/login/presentation/views/widgets/SignInButton.dart';
 import 'package:myapp/features/login/presentation/views/widgets/SignInText.dart';
-import 'package:myapp/features/register/presentation/views/widgets/RegisterImage.dart';
-
+import 'package:myapp/features/register/presentation/views/widgets/register_image.dart';
 
 // ignore: must_be_immutable
 class LoginViewBody extends StatefulWidget {
@@ -27,18 +26,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     setState(() => isLoading = true);
 
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email!,
-        password: password!,
-      );
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email!, password: password!);
 
-      
-
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Login successful!")),
-      );
- context.push('/HomeView');
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Login successful!")));
+      context.push('/HomeView');
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {
@@ -55,9 +49,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           errorMessage = 'Login failed. Please try again.';
       }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(errorMessage)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(errorMessage)));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('An unexpected error occurred.')),
@@ -76,31 +70,16 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             RegisterImage(),
-             SignInText(),
+              RegisterImage(),
+              SignInText(),
 
-              LoginTextField(
-                hint: 'Email',
-                onChanged: (data) => email = data,
-                validator: (value) {
-                  if (value == null || !value.contains('@')) {
-                    return 'Enter a valid email';
-                  }
-                  return null;
-                },
-              ),
+              LoginTextField(hint: 'Email', onChanged: (data) => email = data),
               const SizedBox(height: 27),
 
               LoginTextField(
                 hint: 'Password',
                 obscureText: true,
                 onChanged: (data) => password = data,
-                validator: (value) {
-                  if (value == null || value.length < 6) {
-                    return 'Password must be at least 6 characters';
-                  }
-                  return null;
-                },
               ),
               const SizedBox(height: 24),
 

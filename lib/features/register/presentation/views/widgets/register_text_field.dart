@@ -3,11 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class RegisterTextField extends StatelessWidget {
-  const RegisterTextField({super.key, required this.hint, required this.onChanged, this.validator,  this.obscureText = false});
+  const RegisterTextField({
+    super.key,
+    required this.hint,
+    required this.onChanged,
+    this.obscureText = false,
+  });
 
   final String hint;
   final Function(String)? onChanged;
-   final String? Function(String?)? validator;
   final bool obscureText;
 
   @override
@@ -18,7 +22,12 @@ class RegisterTextField extends StatelessWidget {
           width: 212,
           height: 43,
           child: TextFormField(
-            validator: validator,
+            validator: (data) {
+              if (data!.isEmpty) {
+                return 'This data is required';
+              }
+              return null;
+            },
             obscureText: obscureText,
             textAlign: TextAlign.center,
             onChanged: onChanged,
@@ -32,7 +41,10 @@ class RegisterTextField extends StatelessWidget {
               filled: true,
               fillColor: Color(0xFFcccde0),
               hintText: hint,
-
+              errorStyle: TextStyle(
+                height: 0.1, // smaller line height
+               
+              ),
               hintStyle: GoogleFonts.inter(
                 fontSize: 10,
                 color: Color(0xFF6b6b76),

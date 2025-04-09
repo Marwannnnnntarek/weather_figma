@@ -2,8 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:myapp/features/cover/presentation/views/CoverView.dart';
 import 'package:myapp/features/home/presentation/views/HomeView.dart';
 import 'package:myapp/features/login/presentation/views/LoginView.dart';
-import 'package:myapp/features/register/presentation/views/RegisterView.dart';
-import 'package:myapp/features/start/presentation/views/startView.dart';
+import 'package:myapp/features/register/presentation/views/register_view.dart';
+import 'package:myapp/features/start/presentation/views/start_view.dart';
 
 abstract class AppRouters {
   static final router = GoRouter(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/start/presentation/views/widgets/GetStartButton.dart';
+import 'package:myapp/features/start/presentation/views/widgets/get_start_button.dart';
 
-import 'package:myapp/features/start/presentation/views/widgets/startImage.dart';
+import 'package:myapp/features/start/presentation/views/widgets/start_image.dart';
 
 class StartViewBody extends StatelessWidget {
   const StartViewBody({super.key});
@@ -12,7 +12,6 @@ class StartViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Center(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             StartImage(),
             SizedBox(height: 67),
@@ -27,7 +26,6 @@ class StartViewBody extends StatelessWidget {
             ),
             SizedBox(height: 42),
             GetStartButton(),
-
           ],
         ),
       ),

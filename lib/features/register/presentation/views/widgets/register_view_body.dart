@@ -1,11 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/features/register/presentation/views/widgets/RegisterImage.dart';
-import 'package:myapp/features/register/presentation/views/widgets/RegisterTextField.dart';
-import 'package:myapp/features/register/presentation/views/widgets/SignUpButton.dart';
-import 'package:myapp/features/register/presentation/views/widgets/SignUpText.dart';
-import 'package:myapp/features/register/presentation/views/widgets/WithoutSignUpButton.dart';
+import 'package:myapp/features/register/presentation/views/widgets/register_image.dart';
+import 'package:myapp/features/register/presentation/views/widgets/register_text_field.dart';
+import 'package:myapp/features/register/presentation/views/widgets/sign_up_button.dart';
+import 'package:myapp/features/register/presentation/views/widgets/sign_up_text.dart';
+import 'package:myapp/features/register/presentation/views/widgets/have_acc_button.dart';
 
 // ignore: must_be_immutable
 class RegisterViewBody extends StatefulWidget {
@@ -17,7 +18,7 @@ class RegisterViewBody extends StatefulWidget {
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
   final _formKey = GlobalKey<FormState>();
-  String? email, password;
+  String? email, password, country, phoneNumber, name;
   bool isLoading = false;
 
   void registerUser() async {
@@ -29,17 +30,30 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email!, password: password!);
 
-      await userCredential.user?.sendEmailVerification();
+      User? user = userCredential.user;
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            "Registration successful. Check your email for verification.",
+      if (user != null) {
+        // Save additional user info in Firestore
+        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+          'name': name,
+          'email': email,
+          'phone': phoneNumber,
+          'country': country,
+          'createdAt': Timestamp.now(),
+        });
+
+        await user.sendEmailVerification();
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              "Registration successful. Check your email for verification.",
+            ),
           ),
-        ),
-      );
+        );
 
-      context.push('/HomeView');
+        context.push('/HomeView');
+      }
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {
@@ -79,29 +93,33 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             children: [
               RegisterImage(),
               SignUpText(),
-
+              RegisterTextField(
+                hint: 'First name and last name',
+                onChanged: (data) => name = data,
+                
+              ),
+              const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Email',
                 onChanged: (data) => email = data,
-                validator: (data) {
-                  if (data!.isEmpty) {
-                    return 'Enter a valid email';
-                  }
-                  return null;
-                },
+                
               ),
               const SizedBox(height: 27),
-
+              RegisterTextField(
+                hint: 'Phone Number',
+                onChanged: (data) => phoneNumber = data,
+              ),
+              const SizedBox(height: 27),
+              RegisterTextField(
+                hint: 'Country',
+                onChanged: (data) => country = data,
+              ),
+              const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Password',
-                // obscureText: true,
+                obscureText: true,
                 onChanged: (data) => password = data,
-                validator: (data) {
-                  if (data!.isEmpty) {
-                    return 'Enter a valid email';
-                  }
-                  return null;
-                },
+                
               ),
               const SizedBox(height: 24),
 
