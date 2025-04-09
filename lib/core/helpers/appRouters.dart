@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:myapp/features/cover/presentation/views/CoverView.dart';
-import 'package:myapp/features/home/presentation/views/HomeView.dart';
-import 'package:myapp/features/login/presentation/views/LoginView.dart';
+import 'package:myapp/features/home/presentation/views/home_view.dart';
+import 'package:myapp/features/login/presentation/views/login_view.dart';
 import 'package:myapp/features/register/presentation/views/register_view.dart';
 import 'package:myapp/features/start/presentation/views/start_view.dart';
 

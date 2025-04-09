@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
+    hide Icon, Text;
 
 class ForecastListView extends StatelessWidget {
-  const ForecastListView({super.key});
-
+  const ForecastListView({super.key, required this.weather});
+  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +13,7 @@ class ForecastListView extends StatelessWidget {
       child: SizedBox(
         height: 104,
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: weather.forecast.forecastday.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return SizedBox(
@@ -26,7 +28,7 @@ class ForecastListView extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Mon',
+                        weather.forecast.forecastday[index].date.day.toString(),
                         style: GoogleFonts.josefinSans(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,

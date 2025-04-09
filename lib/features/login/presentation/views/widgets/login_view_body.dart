@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/features/login/presentation/views/widgets/CreateAnAccountButton.dart';
-import 'package:myapp/features/login/presentation/views/widgets/LoginTextField.dart';
-import 'package:myapp/features/login/presentation/views/widgets/SignInButton.dart';
-import 'package:myapp/features/login/presentation/views/widgets/SignInText.dart';
+import 'package:myapp/features/login/presentation/views/widgets/create_button.dart';
+import 'package:myapp/features/login/presentation/views/widgets/login_text_field.dart';
+import 'package:myapp/features/login/presentation/views/widgets/signin_button.dart';
+import 'package:myapp/features/login/presentation/views/widgets/signin_text.dart';
 import 'package:myapp/features/register/presentation/views/widgets/register_image.dart';
 
 // ignore: must_be_immutable
@@ -26,8 +26,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     setState(() => isLoading = true);
 
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email!, password: password!);
 
       ScaffoldMessenger.of(
         context,

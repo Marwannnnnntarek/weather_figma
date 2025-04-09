@@ -4,7 +4,7 @@ import 'package:myapp/features/home/manager/cubit/weatherCubit.dart';
 import 'package:myapp/features/home/manager/cubit/weatherState.dart';
 import 'package:myapp/features/home/presentation/views/widgets/AddCircleIconButton.dart';
 import 'package:myapp/features/home/presentation/views/widgets/BackIconButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/ConditionsCard.dart';
+import 'package:myapp/features/home/presentation/views/widgets/condition_card.dart';
 import 'package:myapp/features/home/presentation/views/widgets/CustomPainter.dart';
 import 'package:myapp/features/home/presentation/views/widgets/DateText.dart';
 import 'package:myapp/features/home/presentation/views/widgets/ForecastData.dart';
@@ -69,8 +69,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           ],
                         ),
                       ),
-                      WeatherCondition(),
-                      ConditionsCard(),
+                      WeatherCondition(weather: weather),
+                      ConditionsCard(weather: weather),
                       SizedBox(height: 31),
                       SizedBox(
                         height: 48,
@@ -85,7 +85,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ],
                   ),
                 ),
-                ForecastData(),
+                ForecastData(weather: weather,),
               ],
             ),
           );

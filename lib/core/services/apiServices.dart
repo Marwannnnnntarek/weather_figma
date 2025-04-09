@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:myapp/features/home/data/models/weather/WeatherModel.dart';
 
 class WeatherApiService {
+
   final String _baseUrl = 'http://api.weatherapi.com/v1';
   final String _apiKey = 'b04dd1e3b4cb4bca9fa191423241511';
 

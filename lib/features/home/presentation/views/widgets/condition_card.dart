@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
+    hide Text;
 import 'package:myapp/features/home/presentation/views/widgets/Humidity.dart';
+
 import 'package:myapp/features/home/presentation/views/widgets/Precipitation.dart';
 import 'package:myapp/features/home/presentation/views/widgets/Wind.dart';
 
 class ConditionsCard extends StatelessWidget {
-  const ConditionsCard({super.key});
-
+  const ConditionsCard({super.key, required this.weather});
+  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,7 +20,13 @@ class ConditionsCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 7),
           child: Row(
-            children: [Precipitation(), Spacer(), Humidity(), Spacer(), Wind()],
+            children: [
+              Precipitation(),
+              Spacer(),
+              Humidity(weather: weather),
+              Spacer(),
+              Wind(weather: weather),
+            ],
           ),
         ),
       ),

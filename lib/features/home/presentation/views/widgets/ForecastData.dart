@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
 import 'package:myapp/features/home/presentation/views/widgets/ForecastListView.dart';
 
 class ForecastData extends StatelessWidget {
-  const ForecastData({super.key});
-
+  const ForecastData({super.key, required this.weather});
+final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +25,7 @@ class ForecastData extends StatelessWidget {
           ),
         ),
         SizedBox(height: 49),
-        ForecastListView(),
+        ForecastListView(weather: weather,),
       ],
     );
   }
