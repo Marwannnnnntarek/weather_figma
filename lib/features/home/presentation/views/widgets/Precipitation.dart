@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/core/helpers/assetsData.dart';
+import 'package:myapp/core/helpers/assets_data.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
 
 class Precipitation extends StatelessWidget {
-  const Precipitation({
-    super.key,
-  });
-
+  const Precipitation({super.key, required this.weather});
+  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.asset(AssetsData.Umbrella),
         Text(
-          '30%',
+          "${weather.current.precipMm}%",
           style: GoogleFonts.josefinSans(
             fontSize: 12,
             fontWeight: FontWeight.w500,

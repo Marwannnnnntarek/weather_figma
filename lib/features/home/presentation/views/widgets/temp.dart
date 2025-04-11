@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
+    hide Text;
 
-class TempText extends StatelessWidget {
-  const TempText({super.key});
-
+class Temp extends StatelessWidget {
+  const Temp({super.key, required this.weather});
+  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Text(
-      '19°',
+      "${weather.current.tempC.toStringAsFixed(0)}°",
       style: GoogleFonts.josefinSans(
         fontSize: 128,
         fontWeight: FontWeight.w500,

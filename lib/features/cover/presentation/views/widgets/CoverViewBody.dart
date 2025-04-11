@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/core/helpers/assetsData.dart';
+import 'package:myapp/core/helpers/assets_data.dart';
 
 class CoverViewBody extends StatefulWidget {
   const CoverViewBody({super.key});

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:myapp/features/home/data/models/weather/WeatherModel.dart';
 
 class WeatherApiService {
-
+//http://api.weatherapi.com/v1/forecast.json?key=b04dd1e3b4cb4bca9fa191423241511&q=london&days=7&aqi=no&alerts=no
   final String _baseUrl = 'http://api.weatherapi.com/v1';
   final String _apiKey = 'b04dd1e3b4cb4bca9fa191423241511';
 
@@ -44,10 +44,7 @@ class WeatherApiService {
           (e) => e.name == json['condition']['text'].toUpperCase().replaceAll(' ', '_'),
           orElse: () => Text.TEXT_CLEAR,
         ),
-        icon: Icon.values.firstWhere(
-          (e) => e.name == json['condition']['icon'].toUpperCase().replaceAll('/', '_').replaceAll('.', '_'),
-          orElse: () => Icon.CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_113_PNG,
-        ),
+         icon: 'https:${json['condition']['icon']}',
         code: json['condition']['code'] as int,
       ),
       windMph: json['wind_mph']?.toDouble() ?? 0.0,
@@ -109,11 +106,11 @@ class WeatherApiService {
               (e) => e.name == day['day']['condition']['text'].toUpperCase().replaceAll(' ', '_'),
               orElse: () => Text.TEXT_CLEAR,
             ),
-            icon: Icon.values.firstWhere(
-              (e) => e.name == day['day']['condition']['icon'].toUpperCase().replaceAll('/', '_').replaceAll('.', '_'),
-              orElse: () => Icon.CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_113_PNG,
-            ),
-            code: day['day']['condition']['code'] as int,
+            // icon: Icon.values.firstWhere(
+            //   (e) => e.name == day['day']['condition']['icon'].toUpperCase().replaceAll('/', '_').replaceAll('.', '_'),
+            //   orElse: () => Icon.CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_113_PNG,
+            // ),
+            code: day['day']['condition']['code'] as int, icon: '',
           ),
           uv: day['day']['uv']?.toDouble() ?? 0.0,
         ),

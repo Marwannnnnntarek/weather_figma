@@ -21,7 +21,7 @@ class ConditionsCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 7),
           child: Row(
             children: [
-              Precipitation(),
+              Precipitation(weather: weather,),
               Spacer(),
               Humidity(weather: weather),
               Spacer(),

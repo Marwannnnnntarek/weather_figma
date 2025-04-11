@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/core/helpers/assetsData.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
+import 'package:myapp/core/helpers/assets_data.dart';
+import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
+    hide Text;
 
 class Humidity extends StatelessWidget {
   const Humidity({super.key, required this.weather});
@@ -12,7 +13,7 @@ class Humidity extends StatelessWidget {
       children: [
         Image.asset(AssetsData.Droplet),
         Text(
-          weather.forecast.forecastday[0].hour[0].humidity.toString(),
+          "${weather.current.humidity}%",
           style: GoogleFonts.josefinSans(
             fontSize: 12,
             fontWeight: FontWeight.w500,

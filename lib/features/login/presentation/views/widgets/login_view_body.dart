@@ -30,7 +30,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Login successful!")));
-      context.push('/HomeView');
+      context.push('/SearchView');
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {

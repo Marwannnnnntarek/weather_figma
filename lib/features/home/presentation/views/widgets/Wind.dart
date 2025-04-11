@@ -13,7 +13,7 @@ class Wind extends StatelessWidget {
       children: [
         Icon(FontAwesomeIcons.wind, color: Color(0xFF4C4DDB)),
         Text(
-          weather.forecast.forecastday[0].hour[0].windKph.toString(),
+         "${weather.current.windKph} km/h",
           style: GoogleFonts.josefinSans(
             fontSize: 12,
             fontWeight: FontWeight.w500,

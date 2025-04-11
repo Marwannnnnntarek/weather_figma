@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/core/helpers/assetsData.dart';
+import 'package:myapp/core/helpers/assets_data.dart';
 
 class RegisterImage extends StatelessWidget {
   const RegisterImage({super.key});

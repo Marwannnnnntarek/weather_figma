@@ -90,7 +90,7 @@ class Current {
 
 class Condition {
   Text text;
-  Icon icon;
+  final String icon; 
   int code;
 
   Condition({

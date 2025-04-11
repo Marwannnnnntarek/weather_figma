@@ -52,7 +52,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           ),
         );
 
-        context.push('/HomeView');
+        context.push('/SearchView');
       }
     } on FirebaseAuthException catch (e) {
       String errorMessage;
