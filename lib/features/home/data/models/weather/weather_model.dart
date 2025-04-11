@@ -90,49 +90,28 @@ class Current {
 
 class Condition {
   Text text;
-  final String icon; 
+  final String icon;
   int code;
 
-  Condition({
-    required this.text,
-    required this.icon,
-    required this.code,
-  });
+  Condition({required this.text, required this.icon, required this.code});
 }
 
 enum Icon {
-  CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_113_PNG,
-  CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_116_PNG,
-  CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_119_PNG,
-  CDN_WEATHERAPI_COM_WEATHER_64_X64_DAY_122_PNG,
-  CDN_WEATHERAPI_COM_WEATHER_64_X64_NIGHT_113_PNG
+  cdnWeatherapiComWeather64x64Day113Png,
+  cdnWeatherapiComWeather64x64Day116Png,
+  cdnWeatherapiComWeather64x64Day119Png,
+  cdnWeatherapiComWeather64x64Day122Png,
+  cdnWeatherapiComWeather64x64Night113Png,
 }
 
-enum Text {
-  CLEAR,
-  CLOUDY,
-  OVERCAST,
-  PARTLY_CLOUDY,
-  SUNNY,
-  TEXT_CLEAR
-}
+enum Text { clear, cloudy, overcast, partlyCloudy, sunny, textClear }
 
-enum WindDir {
-  E,
-  ENE,
-  N,
-  NE,
-  NNE,
-  NNW,
-  WSW
-}
+enum WindDir { e, ene, n, ne, nne, nnw, wsw }
 
 class Forecast {
   List<Forecastday> forecastday;
 
-  Forecast({
-    required this.forecastday,
-  });
+  Forecast({required this.forecastday});
 }
 
 class Forecastday {

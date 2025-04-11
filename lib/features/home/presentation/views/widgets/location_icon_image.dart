@@ -6,9 +6,6 @@ class LocationIconImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 3),
-      child: Image.asset(AssetsData.MapPin),
-    );
+    return Image.asset(AssetsData.mapPin, width: 24, height: 24);
   }
 }

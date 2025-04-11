@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/features/cover/presentation/views/widgets/CoverViewBody.dart';
+import 'package:myapp/features/cover/presentation/views/widgets/cover_view_body.dart';
 
 class CoverView extends StatelessWidget {
   const CoverView({super.key});

@@ -1,14 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myapp/features/register/data/models/user_registration_data.dart';
+import 'package:myapp/features/register/data/services/auth_service.dart';
 import 'package:myapp/features/register/presentation/views/widgets/register_image.dart';
 import 'package:myapp/features/register/presentation/views/widgets/register_text_field.dart';
 import 'package:myapp/features/register/presentation/views/widgets/sign_up_button.dart';
 import 'package:myapp/features/register/presentation/views/widgets/sign_up_text.dart';
 import 'package:myapp/features/register/presentation/views/widgets/have_acc_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-// ignore: must_be_immutable
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
 
@@ -18,67 +18,56 @@ class RegisterViewBody extends StatefulWidget {
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
   final _formKey = GlobalKey<FormState>();
-  String? email, password, country, phoneNumber, name;
-  bool isLoading = false;
+  final _authService = AuthService();
+  final _userData = UserRegistrationData(
+    name: '',
+    email: '',
+    phoneNumber: '',
+    country: '',
+    password: '',
+  );
+  bool _isLoading = false;
 
-  void registerUser() async {
+  /// Shows a snackbar with the given message
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  /// Handles the registration process
+  Future<void> _handleRegistration() async {
     if (!_formKey.currentState!.validate()) return;
 
-    setState(() => isLoading = true);
+    setState(() => _isLoading = true);
 
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email!, password: password!);
+      final userCredential = await _authService.createUserWithEmailAndPassword(
+        email: _userData.email,
+        password: _userData.password,
+      );
 
-      User? user = userCredential.user;
-
+      final user = userCredential.user;
       if (user != null) {
-        // Save additional user info in Firestore
-        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
-          'name': name,
-          'email': email,
-          'phone': phoneNumber,
-          'country': country,
-          'createdAt': Timestamp.now(),
-        });
+        await _authService.saveUserData(user: user, userData: _userData);
+        await _authService.sendEmailVerification(user);
 
-        await user.sendEmailVerification();
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              "Registration successful. Check your email for verification.",
-            ),
-          ),
+        _showSnackBar(
+          "Registration successful. Check your email for verification.",
         );
 
-        context.push('/SearchView');
+        if (mounted) {
+          context.push('/SearchView');
+        }
       }
     } on FirebaseAuthException catch (e) {
-      String errorMessage;
-      switch (e.code) {
-        case 'email-already-in-use':
-          errorMessage = 'This email is already in use.';
-          break;
-        case 'invalid-email':
-          errorMessage = 'This email address is not valid.';
-          break;
-        case 'weak-password':
-          errorMessage = 'The password is too weak.';
-          break;
-        default:
-          errorMessage = 'Registration failed. Please try again.';
-      }
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(errorMessage)));
+      _showSnackBar(_authService.getAuthErrorMessage(e));
     } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('An error occurred.')));
+      _showSnackBar('An error occurred. Please try again.');
     } finally {
-      setState(() => isLoading = false);
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -91,43 +80,39 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              RegisterImage(),
-              SignUpText(),
+              const RegisterImage(),
+              const SignUpText(),
               RegisterTextField(
                 hint: 'First name and last name',
-                onChanged: (data) => name = data,
-                
+                onChanged: (data) => _userData.name = data,
               ),
               const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Email',
-                onChanged: (data) => email = data,
-                
+                onChanged: (data) => _userData.email = data,
               ),
               const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Phone Number',
-                onChanged: (data) => phoneNumber = data,
+                onChanged: (data) => _userData.phoneNumber = data,
+                isPhoneNumber: true,
               ),
               const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Country',
-                onChanged: (data) => country = data,
+                onChanged: (data) => _userData.country = data,
               ),
               const SizedBox(height: 27),
               RegisterTextField(
                 hint: 'Password',
                 obscureText: true,
-                onChanged: (data) => password = data,
-                
+                onChanged: (data) => _userData.password = data,
               ),
               const SizedBox(height: 24),
-
-              isLoading
+              _isLoading
                   ? const CircularProgressIndicator()
-                  : SignUpButton(onPressed: registerUser),
-
-              HaveAccButton(),
+                  : SignUpButton(onPressed: _handleRegistration),
+              const HaveAccButton(),
             ],
           ),
         ),

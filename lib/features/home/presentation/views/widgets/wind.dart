@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
-    hide Icon, Text;
+import 'package:myapp/core/helpers/assets_data.dart';
+import 'package:myapp/features/home/data/models/weather/weather_model.dart'
+    hide Text;
 
-class Wind extends StatelessWidget {
-  const Wind({super.key, required this.weather});
+class WindWidget extends StatelessWidget {
+  const WindWidget({super.key, required this.weather});
+
   final WeatherModel weather;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(FontAwesomeIcons.wind, color: Color(0xFF4C4DDB)),
+        Image.asset(AssetsData.cloud, width: 24, height: 24),
         Text(
-         "${weather.current.windKph} km/h",
-          style: GoogleFonts.josefinSans(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF4C4DDB),
-          ),
-        ),
-        Text(
-          'Wind Speed',
-          style: GoogleFonts.josefinSans(
-            fontSize: 6,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF4C4DDB),
-          ),
+          "${weather.current.windKph} km/h",
+          style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ],
     );
