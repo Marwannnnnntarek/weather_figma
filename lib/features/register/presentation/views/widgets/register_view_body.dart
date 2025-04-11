@@ -127,7 +127,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   ? const CircularProgressIndicator()
                   : SignUpButton(onPressed: registerUser),
 
-              WithoutSignUpButton(),
+              HaveAccButton(),
             ],
           ),
         ),

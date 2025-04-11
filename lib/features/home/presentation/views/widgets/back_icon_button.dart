@@ -7,10 +7,9 @@ class BackIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackButton(
-      
       color: Color(0xFF4C4DDB),
       onPressed: () {
-        context.pop();
+        context.push('/SearchView');
       },
     );
   }

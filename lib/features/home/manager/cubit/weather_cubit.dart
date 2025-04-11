@@ -2,7 +2,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myapp/core/services/apiServices.dart';
-import 'package:myapp/features/home/manager/cubit/weatherState.dart';
+import 'package:myapp/features/home/manager/cubit/weather_state.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
   final WeatherApiService weatherApiService;

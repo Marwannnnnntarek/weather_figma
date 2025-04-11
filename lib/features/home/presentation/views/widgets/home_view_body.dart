@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/features/home/manager/cubit/weatherCubit.dart';
-import 'package:myapp/features/home/manager/cubit/weatherState.dart';
-import 'package:myapp/features/home/presentation/views/widgets/AddCircleIconButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/BackIconButton.dart';
+import 'package:myapp/features/home/manager/cubit/weather_cubit.dart';
+import 'package:myapp/features/home/manager/cubit/weather_state.dart';
+import 'package:myapp/features/home/presentation/views/widgets/add_circle_button.dart';
+import 'package:myapp/features/home/presentation/views/widgets/back_icon_button.dart';
 import 'package:myapp/features/home/presentation/views/widgets/condition_card.dart';
-import 'package:myapp/features/home/presentation/views/widgets/DateText.dart';
-import 'package:myapp/features/home/presentation/views/widgets/ForecastData.dart';
-import 'package:myapp/features/home/presentation/views/widgets/LocationIconImage.dart';
-import 'package:myapp/features/home/presentation/views/widgets/LocationText.dart';
-import 'package:myapp/features/home/presentation/views/widgets/MoreIconButton.dart';
-import 'package:myapp/features/home/presentation/views/widgets/WeatherCondition.dart';
+import 'package:myapp/features/home/presentation/views/widgets/date_text.dart';
+import 'package:myapp/features/home/presentation/views/widgets/forecast_data.dart';
+import 'package:myapp/features/home/presentation/views/widgets/location_icon_image.dart';
+import 'package:myapp/features/home/presentation/views/widgets/location_text.dart';
+import 'package:myapp/features/home/presentation/views/widgets/more_icon_button.dart';
+import 'package:myapp/features/home/presentation/views/widgets/weather_condition.dart';
 
 class HomeViewBody extends StatefulWidget {
-  final String cityName; // Accept city name
+  final String cityName; 
 
   const HomeViewBody({super.key, required this.cityName});
 
@@ -22,12 +22,6 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Fetch weather data for the passed city name
-  //   // context.read<WeatherCubit>().fetchWeather("London");
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -38,47 +32,45 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         } else if (state is WeatherLoaded) {
           final weather = state.weather;
 
-          return Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    color: Color(0xFFD9D9D9),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30, right: 20),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                children: [MoreIconButton(), BackIconButton()],
-                              ),
-                              SizedBox(width: 75),
-                              LocationIconImage(),
-                              SizedBox(width: 7),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  LocationText(weather: weather),
-                                  SizedBox(height: 9),
-                                  DateText(weather: weather),
-                                ],
-                              ),
-                              Spacer(),
-                              AddCircleButtonIcon(),
-                            ],
-                          ),
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  color: Color(0xFFD9D9D9),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30, right: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [MoreIconButton(), BackIconButton()],
+                            ),
+                            SizedBox(width: 75),
+                            LocationIconImage(),
+                            SizedBox(width: 7),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                LocationText(weather: weather),
+                                SizedBox(height: 9),
+                                DateText(weather: weather),
+                              ],
+                            ),
+                            Spacer(),
+                            AddCircleButtonIcon(),
+                          ],
                         ),
-                        WeatherCondition(weather: weather),
-                        ConditionsCard(weather: weather),
-                        SizedBox(height: 31),
-                      ],
-                    ),
+                      ),
+                      WeatherCondition(weather: weather),
+                      ConditionsCard(weather: weather),
+                      SizedBox(height: 31),
+                    ],
                   ),
-                  ForecastData(weather: weather),
-                ],
-              ),
+                ),
+                ForecastData(weather: weather),
+              ],
             ),
           );
         } else if (state is WeatherError) {

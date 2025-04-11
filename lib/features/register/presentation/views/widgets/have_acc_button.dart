@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WithoutSignUpButton extends StatelessWidget {
-  const WithoutSignUpButton({super.key});
+class HaveAccButton extends StatelessWidget {
+  const HaveAccButton ({super.key});
 
   @override
   Widget build(BuildContext context) {

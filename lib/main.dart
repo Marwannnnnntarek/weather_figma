@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myapp/core/services/apiServices.dart';
 import 'package:myapp/core/helpers/app_routes.dart';
-import 'package:myapp/features/home/manager/cubit/weatherCubit.dart';
+import 'package:myapp/features/home/manager/cubit/weather_cubit.dart';
 
 
  main() async{
@@ -22,7 +22,7 @@ import 'package:myapp/features/home/manager/cubit/weatherCubit.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return
@@ -30,6 +30,6 @@ class MyApp extends StatelessWidget {
       routerConfig: AppRouters.router,
       debugShowCheckedModeBanner: false,
     );
-    // MaterialApp(home: Scaffold(body: Container(color: Colors.red)));
+    
   }
 }

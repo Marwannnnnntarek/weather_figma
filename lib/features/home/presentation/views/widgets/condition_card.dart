@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
     hide Text;
-import 'package:myapp/features/home/presentation/views/widgets/Humidity.dart';
+import 'package:myapp/features/home/presentation/views/widgets/humidity.dart';
 
-import 'package:myapp/features/home/presentation/views/widgets/Precipitation.dart';
-import 'package:myapp/features/home/presentation/views/widgets/Wind.dart';
+import 'package:myapp/features/home/presentation/views/widgets/precipitation.dart';
+import 'package:myapp/features/home/presentation/views/widgets/wind.dart';
 
 class ConditionsCard extends StatelessWidget {
   const ConditionsCard({super.key, required this.weather});

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/features/login/presentation/views/widgets/create_button.dart';
+import 'package:myapp/features/login/presentation/views/widgets/create_acc_button.dart';
 import 'package:myapp/features/login/presentation/views/widgets/login_text_field.dart';
 import 'package:myapp/features/login/presentation/views/widgets/signin_button.dart';
 import 'package:myapp/features/login/presentation/views/widgets/signin_text.dart';
@@ -85,7 +85,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   ? const CircularProgressIndicator()
                   : SignInButton(onPressed: loginUser),
 
-              CreateAnAccountButton(),
+              CreateAccountButton(),
             ],
           ),
         ),

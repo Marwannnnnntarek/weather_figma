@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:myapp/features/search/presentation/views/widgets/search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
   SearchViewBody({super.key});
@@ -22,42 +22,11 @@ class SearchViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  hintText: 'Enter city name',
-                  prefixIcon: Icon(Icons.search),
-                  border: InputBorder.none,
-                ),
-                onSubmitted: (value) {
-                  if (value.trim().isNotEmpty) {
-                   
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeViewBody(cityName: value.trim()),
-                      ),
-                    );
-                  }
-                },
-              ),
-            ),
+            SearchTextField(searchController: _searchController),
           ],
         ),
       ),
     );
   }
 }
+
