@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
+import 'package:myapp/features/home/data/models/weather/weather_model.dart';
 import 'package:myapp/features/home/presentation/views/widgets/forecast_listview.dart';
 import 'package:myapp/features/home/presentation/views/widgets/forecast_text.dart';
 

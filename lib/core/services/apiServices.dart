@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart';
+
+import 'package:myapp/features/home/data/models/weather/weather_model.dart';
 
 class WeatherApiService {
 //http://api.weatherapi.com/v1/forecast.json?key=b04dd1e3b4cb4bca9fa191423241511&q=london&days=7&aqi=no&alerts=no
@@ -52,7 +53,7 @@ class WeatherApiService {
       windDegree: json['wind_degree'] as int,
       windDir: WindDir.values.firstWhere(
         (e) => e.name == json['wind_dir'],
-        orElse: () => WindDir.N,
+        orElse: () => WindDir.e,
       ),
       pressureMb: json['pressure_mb']?.toDouble() ?? 0.0,
       pressureIn: json['pressure_in']?.toDouble() ?? 0.0,

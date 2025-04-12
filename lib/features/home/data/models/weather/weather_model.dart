@@ -104,7 +104,7 @@ enum Icon {
   cdnWeatherapiComWeather64x64Night113Png,
 }
 
-enum Text { clear, cloudy, overcast, partlyCloudy, sunny, textClear }
+enum Text { clear, cloudy, overcast, partlyCloudy, sunny, textClear, TEXT_CLEAR }
 
 enum WindDir { e, ene, n, ne, nne, nnw, wsw }
 

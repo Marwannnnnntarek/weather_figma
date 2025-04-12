@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart' hide Text;
+import 'package:myapp/features/home/data/models/weather/weather_model.dart' hide Text;
+
 
 class DateText extends StatelessWidget {
   const DateText({super.key, required this.weather});

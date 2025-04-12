@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+
 import 'package:myapp/features/home/data/models/weather/weather_model.dart';
 
 abstract class WeatherState {}

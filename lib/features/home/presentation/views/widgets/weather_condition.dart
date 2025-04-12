@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
-    hide Text;
+import 'package:myapp/features/home/data/models/weather/weather_model.dart' hide Text;
+
+    
 import 'package:myapp/features/home/presentation/views/widgets/temp.dart';
 
 class WeatherCondition extends StatelessWidget {

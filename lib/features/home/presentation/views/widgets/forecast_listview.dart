@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/home/data/models/weather/WeatherModel.dart'
-    hide Icon, Text;
+import 'package:myapp/features/home/data/models/weather/weather_model.dart' hide Text, Icon;
 
 class ForecastListView extends StatelessWidget {
   const ForecastListView({super.key, required this.weather});

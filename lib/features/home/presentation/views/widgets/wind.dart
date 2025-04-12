@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/core/helpers/assets_data.dart';
 import 'package:myapp/features/home/data/models/weather/weather_model.dart'

@@ -11,21 +11,41 @@ class ConditionsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 100,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          PrecipitationWidget(weather: weather),
+    return 
+    SizedBox(
+      width: 280,
+      height: 72,
+      child: Card(
+        color: Color(0xFFE9E7FF),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 7),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+             PrecipitationWidget(weather: weather),
           HumidityWidget(weather: weather),
           WindWidget(weather: weather),
-        ],
+            ],
+          ),
+        ),
       ),
     );
+    // Container(
+    //   width: double.infinity,
+    //   height: 100,
+    //   decoration: BoxDecoration(
+    //     color: Colors.white,
+    //     borderRadius: BorderRadius.circular(20),
+    //   ),
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: [
+    //       PrecipitationWidget(weather: weather),
+    //       HumidityWidget(weather: weather),
+    //       WindWidget(weather: weather),
+    //     ],
+    //   ),
+    // );
   }
 }
