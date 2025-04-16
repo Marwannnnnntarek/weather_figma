@@ -51,12 +51,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
       if (user != null) {
         await _authService.saveUserData(user: user, userData: _userData);
         await _authService.sendEmailVerification(user);
-
+_showSnackBar(
+           "Registration successful. Check your email for verification.",
+         );
         if (mounted) {
-          context.push(
-            '/VerificationScreen',
-            extra: {'email': _userData.email, 'password': _userData.password},
-          );
+          context.push('/SearchView');
         }
       }
     } on FirebaseAuthException catch (e) {

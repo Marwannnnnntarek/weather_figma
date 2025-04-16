@@ -5,7 +5,7 @@ import 'package:myapp/features/login/presentation/views/login_view.dart';
 import 'package:myapp/features/register/presentation/views/register_view.dart';
 import 'package:myapp/features/search/presentation/views/search_view.dart';
 import 'package:myapp/features/start/presentation/views/start_view.dart';
-import 'package:myapp/features/auth/presentation/screens/verification_screen.dart';
+
 
 abstract class AppRouters {
   static final router = GoRouter(
@@ -28,16 +28,7 @@ abstract class AppRouters {
         path: '/SearchView',
         builder: (context, state) => const SearchView(),
       ),
-      GoRoute(
-        path: '/VerificationScreen',
-        builder: (context, state) {
-          final email = state.extra as Map<String, String>?;
-          return VerificationScreen(
-            email: email?['email'] ?? '',
-            password: email?['password'] ?? '',
-          );
-        },
-      ),
+     
     ],
   );
 }
