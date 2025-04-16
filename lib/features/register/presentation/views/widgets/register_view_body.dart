@@ -30,9 +30,9 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
 
   /// Shows a snackbar with the given message
   void _showSnackBar(String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), duration: const Duration(seconds: 3)),
+    );
   }
 
   /// Handles the registration process
@@ -50,12 +50,15 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
       final user = userCredential.user;
       if (user != null) {
         await _authService.saveUserData(user: user, userData: _userData);
-        await _authService.sendEmailVerification(user);
-_showSnackBar(
-           "Registration successful. Check your email for verification.",
-         );
+        
+        // Send verification email
+        await user.sendEmailVerification();
+        
         if (mounted) {
-          context.push('/SearchView');
+          _showSnackBar(
+            "Registration successful! Please check your email for the verification link.",
+          );
+          context.push('/VerificationView', extra: user);
         }
       }
     } on FirebaseAuthException catch (e) {
@@ -88,6 +91,7 @@ _showSnackBar(
               RegisterTextField(
                 hint: 'Email',
                 onChanged: (data) => _userData.email = data,
+                
               ),
               const SizedBox(height: 27),
               RegisterTextField(

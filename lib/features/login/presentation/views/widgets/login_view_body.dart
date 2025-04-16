@@ -17,6 +17,7 @@ class LoginViewBody extends StatefulWidget {
 
 class _LoginViewBodyState extends State<LoginViewBody> {
   final _formKey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
   String? email, password;
   bool isLoading = false;
 
@@ -26,11 +27,33 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     setState(() => isLoading = true);
 
     try {
+      final userCredential = await _auth.signInWithEmailAndPassword(
+        email: email!,
+        password: password!,
+      );
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Login successful!")));
-      context.push('/SearchView');
+      final user = userCredential.user;
+
+      if (user != null) {
+        if (!user.emailVerified) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Please verify your email first.'),
+              duration: Duration(seconds: 3),
+            ),
+          );
+          await user.sendEmailVerification();
+          setState(() => isLoading = false);
+          return;
+        }
+
+        if (mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(const SnackBar(content: Text("Login successful!")));
+          context.push('/SearchView');
+        }
+      }
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       switch (e.code) {
@@ -42,6 +65,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           break;
         case 'invalid-email':
           errorMessage = 'Invalid email address.';
+          break;
+        case 'user-disabled':
+          errorMessage = 'This account has been disabled.';
           break;
         default:
           errorMessage = 'Login failed. Please try again.';
@@ -55,7 +81,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         const SnackBar(content: Text('An unexpected error occurred.')),
       );
     } finally {
-      setState(() => isLoading = false);
+      if (mounted) {
+        setState(() => isLoading = false);
+      }
     }
   }
 
@@ -71,7 +99,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               RegisterImage(),
               SignInText(),
 
-              LoginTextField(hint: 'Email', onChanged: (data) => email = data),
+              LoginTextField(
+                hint: 'Email',
+                onChanged: (data) => email = data,
+                // keyboardType: TextInputType.emailAddress,
+              ),
               const SizedBox(height: 27),
 
               LoginTextField(
