@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/features/home/data/models/weather/weather_model.dart' hide Text, Icon;
+import 'package:myapp/features/home/data/models/weather/weather_model.dart'
+    hide Text, Icon;
 
 class ForecastListView extends StatelessWidget {
   const ForecastListView({super.key, required this.weather});
@@ -27,13 +28,13 @@ class ForecastListView extends StatelessWidget {
       ),
     );
   }
+
   Widget _forecastTile(
     DateTime date,
     String max,
     String min,
     String condition,
   ) {
-
     return SizedBox(
       width: 69,
       child: Card(

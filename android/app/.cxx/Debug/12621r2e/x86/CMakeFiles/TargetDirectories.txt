@@ -1,0 +1,2 @@
+E:/weather_figma/android/app/.cxx/Debug/12621r2e/x86/CMakeFiles/edit_cache.dir
+E:/weather_figma/android/app/.cxx/Debug/12621r2e/x86/CMakeFiles/rebuild_cache.dir

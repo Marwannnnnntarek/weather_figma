@@ -13,7 +13,7 @@ import 'package:myapp/features/home/presentation/views/widgets/more_icon_button.
 import 'package:myapp/features/home/presentation/views/widgets/weather_condition.dart';
 
 class HomeViewBody extends StatefulWidget {
-  final String cityName; 
+  final String cityName;
 
   const HomeViewBody({super.key, required this.cityName});
 
@@ -22,7 +22,6 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WeatherCubit, WeatherState>(
@@ -40,7 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 30, right: 20),
+                        padding: const EdgeInsets.only(top: 50, right: 20),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -63,9 +62,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           ],
                         ),
                       ),
+                      SizedBox(height: 20),
                       WeatherCondition(weather: weather),
+                      SizedBox(height: 20),
                       ConditionsCard(weather: weather),
-                      SizedBox(height: 31),
+                      SizedBox(height: 50),
                     ],
                   ),
                 ),

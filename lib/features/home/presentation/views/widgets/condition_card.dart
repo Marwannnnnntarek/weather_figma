@@ -11,21 +11,21 @@ class ConditionsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    SizedBox(
+    return SizedBox(
       width: 280,
       height: 72,
       child: Card(
         color: Color(0xFFE9E7FF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 7),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-             PrecipitationWidget(weather: weather),
-          HumidityWidget(weather: weather),
-          WindWidget(weather: weather),
+              PrecipitationWidget(weather: weather),
+              Spacer(),
+              HumidityWidget(weather: weather),
+              Spacer(),
+              WindWidget(weather: weather),
             ],
           ),
         ),
