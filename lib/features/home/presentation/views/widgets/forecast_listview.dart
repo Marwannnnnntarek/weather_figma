@@ -21,7 +21,7 @@ class ForecastListView extends StatelessWidget {
               day.date,
               day.day.maxtempC.toStringAsFixed(0),
               day.day.mintempC.toStringAsFixed(0),
-              day.day.condition.text.name,
+              day.day.condition.text,
             );
           },
         ),

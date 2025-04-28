@@ -88,13 +88,25 @@ class Current {
   });
 }
 
-class Condition {
-  Text text;
-  final String icon;
-  int code;
+// class Condition {
+//   Text text;
+//   final String icon;
+//   int code;
 
-  Condition({required this.text, required this.icon, required this.code});
+//   Condition({required this.text, required this.icon, required this.code});
+// }
+class Condition {
+  final String text;
+  final String icon;
+  final int code;
+
+  Condition({
+    required this.text,
+    required this.icon,
+    required this.code,
+  });
 }
+
 
 enum Icon {
   cdnWeatherapiComWeather64x64Day113Png,
