@@ -40,7 +40,9 @@ class WeatherApiService {
       tempC: json['temp_c']?.toDouble() ?? 0.0,
       tempF: json['temp_f']?.toDouble() ?? 0.0,
       isDay: json['is_day'] as int,
-      condition: Condition(
+     
+      condition: 
+      Condition(
         text: Text.values.firstWhere(
           (e) => e.name == json['condition']['text'].toUpperCase().replaceAll(' ', '_'),
           orElse: () => Text.TEXT_CLEAR,
